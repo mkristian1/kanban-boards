@@ -1,5 +1,5 @@
 import { ThemeProvider } from "styled-components"
-import GlobalStyles from "./global"
+import GlobalStyles from "./global.styles"
 import MainPage from "./pages/MainPage"
 import { theme } from "./theme"
 
