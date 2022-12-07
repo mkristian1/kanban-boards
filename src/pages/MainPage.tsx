@@ -1,8 +1,10 @@
-import { FC } from "react";
-import Sidebar from "../components/Sidebar";
+import { FC } from "react"
+import Sidebar from "../components/Sidebar"
 
-const MainPage:FC = () => (
+const MainPage: FC = () => (
+  <main>
     <Sidebar />
+  </main>
 )
 
-export default MainPage;
+export default MainPage
