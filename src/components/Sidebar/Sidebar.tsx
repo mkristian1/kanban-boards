@@ -1,5 +1,5 @@
 import { avatar, chevron, logo } from "../../assets"
-import { workspaceMenu } from "../../const"
+import { toolsMenu, workspaceMenu } from "../../const"
 import Search from "../../ui/Search/Search"
 import {
   Container,
@@ -9,6 +9,9 @@ import {
   Logo,
   MainMenu,
   SubMenu,
+  SubmenuList,
+  SubmenuListItem,
+  SubMenuTitle,
   Worspace,
   Wrap,
 } from "./sidebar.styles"
@@ -43,7 +46,18 @@ const Sidebar = () => {
           </Dropdown>
         </Container>
       </MainMenu>
-      <SubMenu>Tools</SubMenu>
+      <SubMenu>
+        <Container>
+          <SubMenuTitle>Tools</SubMenuTitle>
+        </Container>
+        <SubmenuList>
+          {toolsMenu.map((item) => (
+            <SubmenuListItem  active={item.active} key={item.id}>
+              <img src={item.img} alt={item.img} /> {item.label}
+            </SubmenuListItem>
+          ))}
+        </SubmenuList>
+      </SubMenu>
     </Wrap>
   )
 }
