@@ -2,7 +2,7 @@ import logo from './images/logo.svg'
 import avatar from './images/avatar.png'
 // Icons
 import search from './images/icons/search.svg'
-import chevron from './images/icons/chevron.svg'
+import {ReactComponent as Chevron}  from './images/icons/chevron.svg'
 // Icons__tools
 import files from './images/icons/tools/files.svg'
 import notes from './images/icons/tools/notes.svg'
@@ -17,7 +17,7 @@ export {
     roadmap,
     shedule,
     tasks,
-    chevron,
+    Chevron,
     avatar,
     search,
     logo

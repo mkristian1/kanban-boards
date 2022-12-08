@@ -6,6 +6,7 @@ const GlobalStyles = createGlobalStyle`
       --white: #fff;
       --gray: #8C939F;
       --grayBg: #F5F8FA;
+      --blue: #0094FF;
       --blueActive: #0094FF;
    }
    body {
@@ -18,6 +19,14 @@ const GlobalStyles = createGlobalStyle`
       list-style-type: none;
       padding: 0;
       margin: 0;
+   }
+   button {
+      cursor: pointer;
+      border: none;
+      transition: .3s;
+      &:hover {
+         opacity: .8;
+      }
    }
 `
 

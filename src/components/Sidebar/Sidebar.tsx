@@ -1,6 +1,6 @@
-import { avatar, chevron, logo } from "../../assets"
+import { avatar, Chevron, logo } from "../../assets"
 import { toolsMenu, workspaceMenu } from "../../const"
-import Search from "../../ui/Search/Search"
+import Search from "../../ui/Search"
 import {
   Container,
   Dropdown,
@@ -30,7 +30,7 @@ const Sidebar = () => {
         <Container>
           <Dropdown>
             <DropdownTitle>
-              <img src={chevron} alt="Chevron" /> Favorites
+              <Chevron /> Favorites
             </DropdownTitle>
             {workspaceMenu.favorites.map((favorite) => (
               <DropdownItem key={favorite.id}>{favorite.label}</DropdownItem>
@@ -38,7 +38,7 @@ const Sidebar = () => {
           </Dropdown>
           <Dropdown>
             <DropdownTitle>
-              <img src={chevron} alt="Chevron" /> My Projects
+              <Chevron /> My Projects
             </DropdownTitle>
             {workspaceMenu.myProjects.map((favorite) => (
               <DropdownItem key={favorite.id}>{favorite.label}</DropdownItem>
