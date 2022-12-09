@@ -22,7 +22,7 @@ const Boards = () => {
               {board.label} <span>{board.items.length}</span>
             </BoardsTitle>
           </BoardsHead>
-          <BoardsContent>
+          <BoardsContent first={board.id === 1}>
             {board.items.map((item) => (
               <Card key={item.id} title={item.label} time={item.date} />
             ))}

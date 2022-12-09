@@ -2,7 +2,6 @@ import styled from "styled-components"
 
 const BoardsWrap = styled.div`
   display: flex;
-  padding-left: 10px;
 `
 const BoardsColumn = styled.div`
   width: calc(80% / 4);
@@ -36,9 +35,10 @@ const BoardsTitle = styled.h3`
   }
 `
 
-const BoardsContent = styled.div`
+const BoardsContent = styled.div<{ first: boolean }>`
   min-height: calc(100vh - 200px);
-  padding: 40px 10px 10px 10px;
+  padding: ${({ first }) =>
+    first ? "40px 10px 10px 20px" : "40px 10px 10px 10px"};
   border-right: 1px solid var(--borderColor);
 `
 
