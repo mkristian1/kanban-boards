@@ -1,6 +1,7 @@
 import logo from './images/logo.svg'
 import avatar from './images/avatar.png'
 // Icons
+import bell from './images/icons/bell.svg'
 import search from './images/icons/search.svg'
 import {ReactComponent as Chevron}  from './images/icons/chevron.svg'
 // Icons__tools
@@ -12,6 +13,7 @@ import tasks from './images/icons/tools/tasks.svg'
 
 
 export {
+    bell,
     files,
     notes,
     roadmap,

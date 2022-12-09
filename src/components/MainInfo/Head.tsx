@@ -1,7 +1,8 @@
 import { FC } from "react"
+import { avatar, bell } from "../../assets"
 import Dropdown from "../../ui/Dropdown"
 import Search from "../../ui/Search"
-import { Button, Header, LSide, RSide } from "./head.styles"
+import { Button, Header, LSide, Notification, RSide, WrapNotification } from "./head.styles"
 
 const Head: FC = () => {
   return (
@@ -23,6 +24,13 @@ const Head: FC = () => {
       </LSide>
       <RSide>
         <Search head />
+        <WrapNotification>
+          <img src={bell} alt="Bell" />
+          <Notification>
+            99+
+          </Notification>
+        </WrapNotification>
+        <img src={avatar} alt="Avatar" />
       </RSide>
     </Header>
   )

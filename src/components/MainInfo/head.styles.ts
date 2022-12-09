@@ -25,5 +25,18 @@ const RSide = styled.div`
   align-items: center;
   gap: 22px;
 `
+const WrapNotification = styled.div`
+  position: relative;
+`
+const Notification = styled.div`
+  position: absolute;
+  top: -10px;
+  right: -15px;
+  font-size: 10px;
+  border-radius: 4px;
+  background-color: var(--red);
+  padding: 4px;
+  color: var(--white);
+`
 
-export { LSide, RSide, Button, Header }
+export { LSide, RSide, Button, Header, WrapNotification, Notification }

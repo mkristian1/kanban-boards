@@ -25,7 +25,7 @@ const Sidebar = () => {
           <Search placeholder="Search..." />
         </Container>
         <Worspace>
-          <img src={avatar} alt="Avatar" /> My workspace
+          <img width={22} src={avatar} alt="Avatar" /> My workspace
         </Worspace>
         <Container>
           <Dropdown>
