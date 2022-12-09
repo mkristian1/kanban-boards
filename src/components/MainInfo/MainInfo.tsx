@@ -1,5 +1,6 @@
 import { FC } from "react"
 import styled from "styled-components"
+import Boards from "./Boards"
 import Head from "./Head"
 
 const MainInfo: FC = () => {
@@ -9,7 +10,7 @@ const MainInfo: FC = () => {
   return (
     <Wrap>
       <Head />
-      <div>Cards</div>
+      <Boards />
     </Wrap>
   )
 }

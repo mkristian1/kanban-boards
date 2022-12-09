@@ -11,6 +11,7 @@ const GlobalStyles = createGlobalStyle`
       --blueActive: #0094FF;
       --blueDark : #2D4071;
       --red: #F21247;
+      --borderColor: #F3F3F3;
    }
    body {
     font-family: 'Roboto', Arial;
