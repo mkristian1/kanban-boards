@@ -5,6 +5,7 @@ const GlobalStyles = createGlobalStyle`
       --black: #222222;
       --white: #fff;
       --gray: #8C939F;
+      --grayActive: #E1E4E7;
       --grayBg: #F5F8FA;
       --blue: #0094FF;
       --blueActive: #0094FF;
@@ -24,9 +25,6 @@ const GlobalStyles = createGlobalStyle`
       cursor: pointer;
       border: none;
       transition: .3s;
-      &:hover {
-         opacity: .8;
-      }
    }
 `
 
