@@ -24,7 +24,13 @@ const Boards = () => {
           </BoardsHead>
           <BoardsContent first={board.id === 1}>
             {board.items.map((item) => (
-              <Card key={item.id} title={item.label} time={item.date} />
+              <Card
+                key={item.id}
+                title={item.label}
+                type={item.type}
+                time={item.date}
+                status={item.status}
+              />
             ))}
           </BoardsContent>
         </BoardsColumn>
