@@ -1,17 +1,25 @@
 import { FC } from "react"
 import { CardWrap } from "./card.styles"
+import { useDrag } from "react-dnd"
+import { IItem, ITEM_TYPE } from "../../types"
 
-interface ICard {
-  title: string,
-  time: string,
-  type: string,
-  status: number,
-}
+const Card: FC<IItem> = ({ item }) => {
+  const [{ opacity }, drag] = useDrag(
+    () => ({
+      type: ITEM_TYPE,
+      item: item,
+      collect: (monitor) => ({
+        opacity: monitor.isDragging() ? 0.4 : 1,
+      }),
+    }),
+    []
+  )
 
-const Card: FC<ICard> = ({ title, time, type, status }) => {
+  const { status, type, label, time } = item
+
   return (
-    <CardWrap status={status} type={type}>
-      <p>{title}</p>
+    <CardWrap ref={drag} status={status} type={type}>
+      <p>{label}</p>
       <time>{time}</time>
     </CardWrap>
   )

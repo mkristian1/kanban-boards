@@ -7,31 +7,42 @@ import {
   BoardsStatusPanel,
 } from "./boards.styles"
 import { useState } from "react"
-import { boardsMock } from "../../const"
+import { boardsData, tasksData } from "../../data"
 import Card from "./Card"
+import { STATUS } from "../../const"
+import { useDrop } from "react-dnd"
+import { ITEM_TYPE } from "../../types"
 
 const Boards = () => {
-  const [boards, setBoards] = useState(boardsMock)
+  const [tasks, setTasks] = useState(tasksData)
+
+  const handleDrag = (itemStatus: number, itemId: number) => {
+    const newTasks = tasks.map((task) =>
+      itemId === task.id ? { ...task, status: STATUS.Completed } : task
+    )
+    setTasks(newTasks)
+  }
+
+  const [, drop] = useDrop({
+    accept: ITEM_TYPE,
+    drop: () => console.log("drop"),
+  })
 
   return (
     <BoardsWrap>
-      {boards.map((board) => (
+      {boardsData.map((board) => (
         <BoardsColumn key={board.id}>
           <BoardsHead>
             <BoardsTitle>
-              {board.label} <span>{board.items.length}</span>
+              {board.label} <span>4</span>
             </BoardsTitle>
           </BoardsHead>
-          <BoardsContent first={board.id === 1}>
-            {board.items.map((item) => (
-              <Card
-                key={item.id}
-                title={item.label}
-                type={item.type}
-                time={item.date}
-                status={item.status}
-              />
-            ))}
+          <BoardsContent ref={drop} first={board.id === 1}>
+            {tasks
+              .filter((item) => item.status === board.status)
+              .map((item) => (
+                <Card key={item.id} item={item} />
+              ))}
           </BoardsContent>
         </BoardsColumn>
       ))}
