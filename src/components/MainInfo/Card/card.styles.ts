@@ -1,12 +1,17 @@
 import styled from "styled-components"
 import { STATUS } from "../../../const"
 
-const CardWrap = styled.div<{ type: string; status: string }>`
+const CardWrap = styled.div<{
+  type: string
+  status: string
+}>`
   background: ${({ theme, status, type }) =>
     status === STATUS.Completed ? "var(--bgCompleted)" : theme.cardType[type]};
   border-radius: 8px;
   padding: 16px;
   margin-bottom: 10px;
+  cursor: grab;
+  transition: opacity .7s;
   p {
     margin-top: 0;
     margin-bottom: 4px;
