@@ -23,8 +23,8 @@ export const toolsMenu = [
 
 
 export enum STATUS {
-  New,
-  Scheduled,
-  InProgress,
-  Completed,
+  New = 'new',
+  Scheduled = 'scheduled',
+  InProgress = 'inProgress',
+  Completed = 'completed',
 }
