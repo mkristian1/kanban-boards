@@ -1,7 +1,8 @@
 import styled from "styled-components"
 
 const Button = styled.button<{ active: boolean }>`
-  background-color: ${({ active }) => active ? "var(--grayActive)" : 'var(--grayBg)'};
+  background-color: ${({ active }) =>
+    active ? "var(--grayActive)" : "var(--grayBg)"};
   position: relative;
   display: flex;
   gap: 14px;
@@ -15,7 +16,7 @@ const Button = styled.button<{ active: boolean }>`
   }
 `
 
-const DropList = styled.ul<{ active: boolean, ref: HTMLDivElement }>`
+const DropList = styled.ul<{ active: boolean }>`
   visibility: ${({ active }) => (active ? "visible" : "hidden")};
   position: absolute;
   top: 100%;

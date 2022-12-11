@@ -1,5 +1,7 @@
-import { FC, useEffect, useRef, useState } from "react"
+import { FC, useRef, useState } from "react"
 import { Chevron } from "../../assets"
+import { useOutsideClick } from "../../hooks/useOutsideClick"
+
 import { Button, DropList, DropListItem } from "./dropdown.styles"
 
 interface IDropdown {
@@ -11,36 +13,25 @@ const Dropdown: FC<IDropdown> = ({ title, list }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
-    const listenOutsideClick = (event: Event) => {
-      if (
-        event.target ||
-        (isOpen &&
-          dropdownRef.current &&
-          !dropdownRef.current.contains(event.target))
-      ) {
-        setIsOpen(false)
-      }
-    }
-
-    document.body.addEventListener("mousedown", listenOutsideClick)
-
-    return () => {
-      document.body.removeEventListener("mousedown", listenOutsideClick)
-    }
-  }, [isOpen])
+  useOutsideClick(isOpen, setIsOpen, dropdownRef)
+  
+  const handleDropdown = () => {
+    setIsOpen((prev) => !prev)
+  }
 
   return (
-    <Button onClick={() => setIsOpen((prev) => !prev)} active={isOpen}>
-      {title} <Chevron />
-      <DropList ref={dropdownRef as any} active={isOpen}>
-        {list.map((item) => (
-          <DropListItem active={item.active} key={item.id}>
-            {item.label}
-          </DropListItem>
-        ))}
-      </DropList>
-    </Button>
+    <div ref={dropdownRef as any}>
+      <Button onClick={handleDropdown} active={isOpen}>
+        {title} <Chevron />
+        <DropList active={isOpen}>
+          {list.map((item) => (
+            <DropListItem active={item.active} key={item.id}>
+              {item.label}
+            </DropListItem>
+          ))}
+        </DropList>
+      </Button>
+    </div>
   )
 }
 
