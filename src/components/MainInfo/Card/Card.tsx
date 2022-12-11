@@ -10,9 +10,10 @@ export interface ICard {
 }
 
 const Card: FC<ICard> = ({ item, index, handleMoveItem }) => {
-  const ref = useRef<HTMLDivElement | null>(null)
+  
+  const ref = useRef<HTMLDivElement>(null)
 
-  const [, drop] = useDrop({
+  const [, drop] = useDrop<IItem>({
     accept: ITEM_TYPE,
     hover(item, monitor) {
         if (!ref.current) {
@@ -21,7 +22,7 @@ const Card: FC<ICard> = ({ item, index, handleMoveItem }) => {
         const dragIndex = item.index;
         const hoverIndex = index;
         
-        if (dragIndex === hoverIndex) {
+        if (!dragIndex || dragIndex === hoverIndex) {
           return
         }
 
@@ -29,7 +30,7 @@ const Card: FC<ICard> = ({ item, index, handleMoveItem }) => {
         const hoverMiddleY = (hoveredRect.bottom - hoveredRect.top) / 2;
         const mousePosition = monitor.getClientOffset() as XYCoord;
         const hoverClientY = mousePosition.y - hoveredRect.top;
-
+      
         if (dragIndex < hoverIndex && hoverClientY < hoverMiddleY) {
             return;
         }
@@ -42,7 +43,7 @@ const Card: FC<ICard> = ({ item, index, handleMoveItem }) => {
     },
 });
 
-  const [, drag] = useDrag({
+  const [, drag] = useDrag<IItem>({
       type: ITEM_TYPE,
       item: {...item, index},
     }

@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { boardsData, tasksData } from "../../../data"
+import { IItem } from "../../../types"
 import Card from "../Card/Card"
 import {
   BoardsColumn,
@@ -11,14 +12,14 @@ import {
 import BoardsContent from "./BoardsContent"
 
 const Boards = () => {
-  const [tasks, setTasks] = useState(tasksData)
+  const [tasks, setTasks] = useState<IItem[]>(tasksData)
 
-  const handleDrop = (item, newStatus: string) => {
+  const handleDrop = (item:IItem, newStatus: string) => {
     const newTasks = tasks.filter((task) => task.id !== item.id)
     setTasks([...newTasks, { ...item, status: newStatus }])
   }
 
-  const handleMoveItem = (dragIndex, hoverIndex, status) => {
+  const handleMoveItem = (dragIndex: number, hoverIndex: number, status: string) => {
     const newArr = [...tasks].filter((item, idx) => item.status === status)
     const item = newArr.filter((item, idx) =>  dragIndex !== idx)
     item.splice(hoverIndex, 0, newArr[dragIndex])
