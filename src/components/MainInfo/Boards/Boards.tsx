@@ -20,10 +20,17 @@ const Boards = () => {
   }
 
   const handleMoveItem = (dragIndex: number, hoverIndex: number, status: string) => {
-    const newArr = [...tasks].filter((item, idx) => item.status === status)
-    const item = newArr.filter((item, idx) =>  dragIndex !== idx)
-    item.splice(hoverIndex, 0, newArr[dragIndex])
-    setTasks((prev) => [...prev.filter(item => item.status !== status), ...item])
+    setTasks((prevItems) => {
+      const newArrItems = prevItems
+      const currentStatusItems = newArrItems.filter((item, idx) => item.status === status)
+      const otherStatusItems = newArrItems.filter(item => item.status !== status)
+      const items = currentStatusItems.filter((item, idx) =>  dragIndex !== idx)
+      const currentItem = currentStatusItems[dragIndex]
+
+      items.splice(hoverIndex, 0, currentItem)
+
+      return [...otherStatusItems, ...items]
+    })
   }
 
   return (
