@@ -14,18 +14,27 @@ import BoardsContent from "./BoardsContent"
 const Boards = () => {
   const [tasks, setTasks] = useState<IItem[]>(tasksData)
 
-  const handleDrop = (item:IItem, newStatus: string) => {
-    const newTasks = tasks.filter((task) => task.id !== item.id)
-    setTasks([...newTasks, { ...item, status: newStatus }])
+  const handleDrop = (item: IItem, newStatus: string) => {
+    if (item) {
+      const newTasks = tasks.filter((task) => task.id !== item.id)
+      setTasks([...newTasks, { ...item, status: newStatus }])
+    }
   }
 
-  const handleMoveItem = (dragIndex: number, hoverIndex: number, status: string) => {
-
+  const handleMoveItem = (
+    dragIndex: number,
+    hoverIndex: number,
+    status: string
+  ) => {
     setTasks((prevItems) => {
       const newArrItems = prevItems
-      const currentStatusItems = newArrItems.filter((item) => item.status === status)
-      const otherStatusItems = newArrItems.filter(item => item.status !== status)
-      const items = currentStatusItems.filter((item, idx) =>  dragIndex !== idx)
+      const currentStatusItems = newArrItems.filter(
+        (item) => item.status === status
+      )
+      const otherStatusItems = newArrItems.filter(
+        (item) => item.status !== status
+      )
+      const items = currentStatusItems.filter((item, idx) => dragIndex !== idx)
       const dragItem = currentStatusItems[dragIndex]
 
       items.splice(hoverIndex, 0, dragItem)

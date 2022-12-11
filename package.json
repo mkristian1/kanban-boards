@@ -15,6 +15,7 @@
     "react-dnd-html5-backend": "^16.0.1",
     "react-dom": "^18.2.0",
     "styled-components": "^5.3.6",
+    "vite-plugin-dts": "^1.7.1",
     "vite-plugin-svgr": "^2.2.2"
   },
   "devDependencies": {
