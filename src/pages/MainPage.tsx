@@ -3,10 +3,11 @@ import styled from "styled-components"
 import MainInfo from "../components/MainInfo"
 import Sidebar from "../components/Sidebar"
 
+const Main = styled.main`
+  display: flex;
+`
+
 const MainPage: FC = () => {
-  const Main = styled.main`
-    display: flex;
-  `
   return (
     <Main>
       <Sidebar />

@@ -25,9 +25,9 @@ const Boards = () => {
       const currentStatusItems = newArrItems.filter((item, idx) => item.status === status)
       const otherStatusItems = newArrItems.filter(item => item.status !== status)
       const items = currentStatusItems.filter((item, idx) =>  dragIndex !== idx)
-      const currentItem = currentStatusItems[dragIndex]
+      const dragItem = currentStatusItems[dragIndex]
 
-      items.splice(hoverIndex, 0, currentItem)
+      items.splice(hoverIndex, 0, dragItem)
 
       return [...otherStatusItems, ...items]
     })

@@ -15,7 +15,7 @@ const Button = styled.button<{ active: boolean }>`
   }
 `
 
-const DropList = styled.ul<{ active: boolean }>`
+const DropList = styled.ul<{ active: boolean, ref: HTMLDivElement }>`
   visibility: ${({ active }) => (active ? "visible" : "hidden")};
   position: absolute;
   top: 100%;
