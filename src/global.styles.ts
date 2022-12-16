@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components"
+import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
    :root {
@@ -31,6 +31,6 @@ const GlobalStyles = createGlobalStyle`
       border: none;
       transition: .3s;
    }
-`
+`;
 
-export default GlobalStyles
+export default GlobalStyles;

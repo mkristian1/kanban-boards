@@ -1,14 +1,14 @@
-import styled from "styled-components"
+import styled from 'styled-components';
 
 const BoardsWrap = styled.div`
   display: flex;
-`
+`;
 const BoardsColumn = styled.div`
   width: calc(80% / 4);
   &:first-child {
     width: calc(80% / 4) + 10px;
   }
-`
+`;
 
 const BoardsHead = styled.div`
   display: flex;
@@ -16,7 +16,7 @@ const BoardsHead = styled.div`
   text-align: center;
   padding: 26px 8px 12px 8px;
   border-bottom: 1px solid var(--borderColor);
-`
+`;
 
 const BoardsTitle = styled.h3`
   display: flex;
@@ -33,14 +33,14 @@ const BoardsTitle = styled.h3`
     font-weight: 400;
     border-radius: 100px;
   }
-`
+`;
 
 const BoardsContent = styled.div<{ first: boolean }>`
   min-height: calc(100vh - 200px);
   padding: ${({ first }) =>
-    first ? "40px 10px 10px 20px" : "40px 10px 10px 10px"};
+    first ? '40px 10px 10px 20px' : '40px 10px 10px 10px'};
   border-right: 1px solid var(--borderColor);
-`
+`;
 
 const BoardsStatusPanel = styled.div`
   width: 20%;
@@ -49,7 +49,7 @@ const BoardsStatusPanel = styled.div`
   color: var(--gray);
   padding: 26px 8px 12px 34px;
   height: 25px;
-`
+`;
 
 export {
   BoardsWrap,
@@ -58,4 +58,4 @@ export {
   BoardsColumn,
   BoardsContent,
   BoardsStatusPanel,
-}
+};

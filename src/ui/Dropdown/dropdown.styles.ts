@@ -1,8 +1,8 @@
-import styled from "styled-components"
+import styled from 'styled-components';
 
 const Button = styled.button<{ active: boolean }>`
   background-color: ${({ active }) =>
-    active ? "var(--grayActive)" : "var(--grayBg)"};
+    active ? 'var(--grayActive)' : 'var(--grayBg)'};
   position: relative;
   display: flex;
   gap: 14px;
@@ -12,12 +12,12 @@ const Button = styled.button<{ active: boolean }>`
   svg {
     transition: transform 0.3s;
     color: var(--gray);
-    transform: ${({ active }) => active && "rotate(180deg)"};
+    transform: ${({ active }) => active && 'rotate(180deg)'};
   }
-`
+`;
 
 const DropList = styled.ul<{ active: boolean }>`
-  visibility: ${({ active }) => (active ? "visible" : "hidden")};
+  visibility: ${({ active }) => (active ? 'visible' : 'hidden')};
   position: absolute;
   top: 100%;
   left: 0;
@@ -28,13 +28,13 @@ const DropList = styled.ul<{ active: boolean }>`
   padding: 6px;
   box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.15);
   border-radius: 8px;
-`
+`;
 
 const DropListItem = styled.li<{ active: boolean }>`
-  background-color: ${({ active }) => (active ? "var(--grayBg)" : "initial")};
+  background-color: ${({ active }) => (active ? 'var(--grayBg)' : 'initial')};
   padding: 12px 8px;
   border-radius: 4px;
   text-align: left;
-`
+`;
 
-export { Button, DropList, DropListItem }
+export { Button, DropList, DropListItem };

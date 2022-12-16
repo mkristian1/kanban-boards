@@ -1,25 +1,25 @@
-import { useState } from "react"
-import { boardsData, tasksData } from "../../../data"
-import { IItem } from "../../../types"
-import Card from "../Card/Card"
+import { useState } from 'react';
+import { boardsData, tasksData } from '../../../data';
+import { IItem } from '../../../types';
+import Card from '../Card/Card';
 import {
   BoardsColumn,
   BoardsHead,
   BoardsStatusPanel,
   BoardsTitle,
   BoardsWrap,
-} from "./boards.styles"
-import BoardsContent from "./BoardsContent"
+} from './boards.styles';
+import BoardsContent from './BoardsContent';
 
 const Boards = () => {
-  const [tasks, setTasks] = useState<IItem[]>(tasksData)
+  const [tasks, setTasks] = useState<IItem[]>(tasksData);
 
   const handleDrop = (item: IItem, newStatus: string) => {
     if (item) {
-      const newTasks = tasks.filter((task) => task.id !== item.id)
-      setTasks([...newTasks, { ...item, status: newStatus }])
+      const newTasks = tasks.filter((task) => task.id !== item.id);
+      setTasks([...newTasks, { ...item, status: newStatus }]);
     }
-  }
+  };
 
   const handleMoveItem = (
     dragIndex: number,
@@ -27,21 +27,21 @@ const Boards = () => {
     status: string
   ) => {
     setTasks((prevItems) => {
-      const newArrItems = prevItems
+      const newArrItems = prevItems;
       const currentStatusItems = newArrItems.filter(
         (item) => item.status === status
-      )
+      );
       const otherStatusItems = newArrItems.filter(
         (item) => item.status !== status
-      )
-      const items = currentStatusItems.filter((item, idx) => dragIndex !== idx)
-      const dragItem = currentStatusItems[dragIndex]
+      );
+      const items = currentStatusItems.filter((item, idx) => dragIndex !== idx);
+      const dragItem = currentStatusItems[dragIndex];
 
-      items.splice(hoverIndex, 0, dragItem)
+      items.splice(hoverIndex, 0, dragItem);
 
-      return [...otherStatusItems, ...items]
-    })
-  }
+      return [...otherStatusItems, ...items];
+    });
+  };
 
   return (
     <BoardsWrap>
@@ -73,7 +73,7 @@ const Boards = () => {
       ))}
       <BoardsStatusPanel>+ Create status</BoardsStatusPanel>
     </BoardsWrap>
-  )
-}
+  );
+};
 
-export default Boards
+export default Boards;

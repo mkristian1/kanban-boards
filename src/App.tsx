@@ -1,11 +1,11 @@
-import { ThemeProvider } from "styled-components"
-import GlobalStyles from "./global.styles"
-import MainPage from "./pages/MainPage"
-import { theme } from "./theme"
-import { HTML5Backend } from "react-dnd-html5-backend"
-import { DndProvider } from "react-dnd"
+import { ThemeProvider } from 'styled-components';
+import { HTML5Backend } from 'react-dnd-html5-backend';
+import { DndProvider } from 'react-dnd';
+import GlobalStyles from './global.styles';
+import MainPage from './pages/MainPage';
+import { theme } from './theme';
 
-function App() {
+const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <DndProvider backend={HTML5Backend}>
@@ -13,7 +13,7 @@ function App() {
         <MainPage />
       </DndProvider>
     </ThemeProvider>
-  )
-}
+  );
+};
 
-export default App
+export default App;

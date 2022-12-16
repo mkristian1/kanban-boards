@@ -1,26 +1,26 @@
-import { FC, useRef, useState } from "react"
-import { Chevron } from "../../assets"
-import { useOutsideClick } from "../../hooks/useOutsideClick"
+import { FC, useRef, useState } from 'react';
+import { Chevron } from '../../assets';
+import { useOutsideClick } from '../../hooks/useOutsideClick';
 
-import { Button, DropList, DropListItem } from "./dropdown.styles"
+import { Button, DropList, DropListItem } from './dropdown.styles';
 
 interface IDropdown {
-  title: string
-  list: { id: number; label: string; active: boolean }[]
+  title: string;
+  list: { id: number; label: string; active: boolean }[];
 }
 
 const Dropdown: FC<IDropdown> = ({ title, list }) => {
-  const [isOpen, setIsOpen] = useState<boolean>(false)
-  const dropdownRef = useRef<HTMLDivElement>(null)
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const dropdownRef = useRef<HTMLDivElement | null>(null);
 
-  useOutsideClick(isOpen, setIsOpen, dropdownRef)
-  
+  useOutsideClick(isOpen, setIsOpen, dropdownRef);
+
   const handleDropdown = () => {
-    setIsOpen((prev) => !prev)
-  }
+    setIsOpen((prev) => !prev);
+  };
 
   return (
-    <div ref={dropdownRef as any}>
+    <div ref={dropdownRef}>
       <Button onClick={handleDropdown} active={isOpen}>
         {title} <Chevron />
         <DropList active={isOpen}>
@@ -32,7 +32,7 @@ const Dropdown: FC<IDropdown> = ({ title, list }) => {
         </DropList>
       </Button>
     </div>
-  )
-}
+  );
+};
 
-export default Dropdown
+export default Dropdown;

@@ -1,26 +1,23 @@
-import { useEffect } from "react"
+import { useEffect } from 'react';
 
+const useOutsideClick = (
+  active: boolean,
+  handle: (status: boolean) => void,
+  ref: { current: HTMLDivElement | null }
+) => {
+  useEffect(() => {
+    const listenOutsideClick = (e: any) => {
+      if (ref && active && ref.current && !ref.current.contains(e.target)) {
+        handle(false);
+      }
+    };
 
-const useOutsideClick = (active: boolean, handle : (status: boolean) => void, ref: any) => {
-    useEffect(() => {
-        const listenOutsideClick = (event: Event) => {
-          if (
-            (active &&
-              ref.current &&
-              !ref.current.contains(event.target))
-          ) {
-            handle(false)
-          }
-        }
-    
-        document.body.addEventListener("mousedown", listenOutsideClick)
-    
-        return () => {
-          document.body.removeEventListener("mousedown", listenOutsideClick)
-        }
-      }, [active])
-}
+    document.body.addEventListener('mousedown', listenOutsideClick);
 
-export {
-    useOutsideClick
-}
+    return () => {
+      document.body.removeEventListener('mousedown', listenOutsideClick);
+    };
+  }, [active, handle, ref]);
+};
+
+export { useOutsideClick };

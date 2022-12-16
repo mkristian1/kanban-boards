@@ -1,6 +1,6 @@
-import { avatar, Chevron, logo } from "../../assets"
-import { toolsMenu, workspaceMenu } from "../../const"
-import Search from "../../ui/Search"
+import { avatar, Chevron, logo } from '../../assets';
+import { toolsMenu, workspaceMenu } from '../../const';
+import Search from '../../ui/Search';
 import {
   Container,
   Dropdown,
@@ -14,7 +14,7 @@ import {
   SubMenuTitle,
   Worspace,
   Wrap,
-} from "./sidebar.styles"
+} from './sidebar.styles';
 
 const Sidebar = () => {
   return (
@@ -52,14 +52,14 @@ const Sidebar = () => {
         </Container>
         <SubmenuList>
           {toolsMenu.map((item) => (
-            <SubmenuListItem  active={item.active} key={item.id}>
+            <SubmenuListItem active={item.active} key={item.id}>
               <img src={item.img} alt={item.img} /> {item.label}
             </SubmenuListItem>
           ))}
         </SubmenuList>
       </SubMenu>
     </Wrap>
-  )
-}
+  );
+};
 
-export default Sidebar
+export default Sidebar;

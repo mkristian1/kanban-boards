@@ -1,11 +1,11 @@
-import { FC } from "react"
-import styled from "styled-components"
-import MainInfo from "../components/MainInfo"
-import Sidebar from "../components/Sidebar"
+import { FC } from 'react';
+import styled from 'styled-components';
+import MainInfo from '../components/MainInfo';
+import Sidebar from '../components/Sidebar';
 
 const Main = styled.main`
   display: flex;
-`
+`;
 
 const MainPage: FC = () => {
   return (
@@ -13,7 +13,7 @@ const MainPage: FC = () => {
       <Sidebar />
       <MainInfo />
     </Main>
-  )
-}
+  );
+};
 
-export default MainPage
+export default MainPage;

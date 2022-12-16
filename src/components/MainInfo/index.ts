@@ -1,3 +1,3 @@
-import MainInfo from "./MainInfo";
+import MainInfo from './MainInfo';
 
 export default MainInfo;

@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.prettierrc.js
+env.d.ts
+tsconfig.node.json
+*.cjs
+d.ts
