@@ -23,7 +23,7 @@ const Dropdown: FC<IDropdown> = ({ title, list }) => {
     <div ref={dropdownRef}>
       <Button onClick={handleDropdown} active={isOpen}>
         {title} <Chevron />
-        <DropList active={isOpen}>
+        <DropList data-testid="list" active={isOpen}>
           {list.map((item) => (
             <DropListItem active={item.active} key={item.id}>
               {item.label}
