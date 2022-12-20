@@ -5,3 +5,4 @@ env.d.ts
 tsconfig.node.json
 *.cjs
 d.ts
+vite.config.ts

@@ -1,7 +1,8 @@
 module.exports = {
     "env": {
         "browser": true,
-        "es2021": true
+        "es2021": true,
+        "jest": true,
     },
     "extends": [
         "airbnb", "airbnb/hooks",
@@ -35,6 +36,8 @@ module.exports = {
         "import/prefer-default-export": 0,
         "no-shadow": 0,
         "@typescript-eslint/no-shadow": 1,
+        "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
+        "react/require-default-props": 0,
     },
     "settings": {
         "import/resolver": {
